@@ -1,6 +1,9 @@
 package baseball;
 
-class BaseballNumberTest {
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+class BaseballStateTest {
 
 	private static class DummyBaseballNumberGenerator implements baseball.BaseballNumberGenerator {
 		int callCount = 0;
@@ -24,4 +27,10 @@ class BaseballNumberTest {
 
 	private DummyBaseballNumberGenerator baseballNumberGenerator = new DummyBaseballNumberGenerator();
 	private BaseballState baseballState = new BaseballState(baseballNumberGenerator);
+
+	@Test
+	void isCorrectTest() {
+		String input = "123";
+		Assertions.assertTrue(baseballState.isCorrect(input));
+	}
 }

@@ -18,4 +18,10 @@ public class BaseballState {
 		}
 		this.answer = answer;
 	}
+
+	public boolean isCorrect(String string) {
+		List<Integer> input = new ArrayList<>();
+		string.chars().forEach(c -> input.add(c-'0'));
+		return input.equals(answer);
+	}
 }
