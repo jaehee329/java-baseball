@@ -3,7 +3,9 @@ package baseball;
 import baseball.view.InputView;
 
 public class FlowController {
+
 	private InputView inputView = new InputView();
+	private BaseballState baseballState = new BaseballState(new RandomBaseballNumberGenerator());
 
 	public void run() {
 		try {
@@ -14,6 +16,5 @@ public class FlowController {
 	}
 
 	private void runGame() {
-
 	}
 }
