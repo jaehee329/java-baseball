@@ -9,4 +9,8 @@ public class InputValidator {
 	public boolean hasThreeCharacters(String string) {
 		return string.length() == 3;
 	}
+
+	public boolean isStringWithNonZeroStart(String string) {
+		return string.charAt(0) != '0';
+	}
 }

@@ -27,4 +27,16 @@ class InputValidatorTest {
 	void hasThreeCharactersAssertTrueTest(String string) {
 		assertTrue(inputValidator.hasThreeCharacters(string));
 	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {"-0", "가나다", "abc", "+00", "105"})
+	void isStringWithNonZeroStartAssertTrueTest(String string) {
+		assertTrue(inputValidator.isStringWithNonZeroStart(string));
+	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {"0", "012", "0가나", "0asd"})
+	void isStringWithNonZeroStartAssertFalseTest(String string) {
+		assertFalse(inputValidator.isStringWithNonZeroStart(string));
+	}
 }
