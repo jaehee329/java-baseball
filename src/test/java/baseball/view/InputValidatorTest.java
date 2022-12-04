@@ -29,6 +29,18 @@ class InputValidatorTest {
 	}
 
 	@ParameterizedTest
+	@ValueSource(strings = {"", "-1", "가나", "abcd", "+123"})
+	void isOneOrTwoTest1(String string) {
+		assertThrows(IllegalArgumentException.class, () -> inputValidator.isOneOrTwo(string));
+	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {"1", "2"})
+	void isOneOrTwoTest2(String string) {
+		inputValidator.isOneOrTwo(string);
+	}
+
+	@ParameterizedTest
 	@ValueSource(strings = {"-0", "가나다", "abc", "+00", "105"})
 	void isStringWithNonZeroStartTest1(String string) {
 		inputValidator.isStringWithNonZeroStart(string);

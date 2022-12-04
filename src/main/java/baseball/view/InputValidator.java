@@ -8,6 +8,10 @@ public class InputValidator {
 		isStringWithNonZeroStart(string);
 	}
 
+	public void validateRestartNumber(String string) throws IllegalArgumentException {
+		isOneOrTwo(string);
+	}
+
 	public void isNumberString(String string) {
 		if (!string.chars().allMatch(Character::isDigit)) {
 			throw new IllegalArgumentException("입력은 숫자로만 구성된 문자열이어야 합니다.");
@@ -23,6 +27,12 @@ public class InputValidator {
 	public void isStringWithNonZeroStart(String string) {
 		if (string.charAt(0) == '0') {
 			throw new IllegalArgumentException("입력은 0이 아닌 문자로 시작되어야 합니다.");
+		}
+	}
+
+	public void isOneOrTwo(String string) {
+		if (!(string.equals("1") || string.equals("2"))) {
+			throw new IllegalArgumentException("입력은 1 또는 2여야 합니다.");
 		}
 	}
 }
