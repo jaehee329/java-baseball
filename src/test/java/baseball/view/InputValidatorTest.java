@@ -16,4 +16,15 @@ class InputValidatorTest {
 		assertFalse(inputValidator.isNumberString(string));
 	}
 
+	@ParameterizedTest
+	@ValueSource(strings = {" ", "-1", "가나", "abcd", "+123"})
+	void hasThreeCharactersAssertFalseTest(String string) {
+		assertFalse(inputValidator.hasThreeCharacters(string));
+	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {"123", "087", "가나다", "abc", "+12", "-5-"})
+	void hasThreeCharactersAssertTrueTest(String string) {
+		assertTrue(inputValidator.hasThreeCharacters(string));
+	}
 }
