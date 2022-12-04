@@ -11,22 +11,11 @@ class InputValidatorTest {
 	InputValidator inputValidator = new InputValidator();
 
 	@ParameterizedTest
-	@ValueSource(strings = {" ", "-12", "가나", "abcd", "+123"})
-	void isNumberStringTest(String string) {
-		assertThrows(IllegalArgumentException.class, () -> inputValidator.isNumberString(string));
+	@ValueSource(strings = {" ", "-12", "1234", "057", "902", "840", "asd", "가나1"})
+	void isStringPositiveThreeDigitTest(String string) {
+		assertThrows(IllegalArgumentException.class, () -> inputValidator.validateBaseballNumber(string));
 	}
 
-	@ParameterizedTest
-	@ValueSource(strings = {" ", "-1", "가나", "abcd", "+123"})
-	void hasThreeCharactersTest1(String string) {
-		assertThrows(IllegalArgumentException.class, () -> inputValidator.hasThreeCharacters(string));
-	}
-
-	@ParameterizedTest
-	@ValueSource(strings = {"123", "087", "가나다", "abc", "+12", "-5-"})
-	void hasThreeCharactersTest2(String string) {
-		inputValidator.hasThreeCharacters(string);
-	}
 
 	@ParameterizedTest
 	@ValueSource(strings = {"", "-1", "가나", "abcd", "+123"})
@@ -38,17 +27,5 @@ class InputValidatorTest {
 	@ValueSource(strings = {"1", "2"})
 	void isOneOrTwoTest2(String string) {
 		inputValidator.isOneOrTwo(string);
-	}
-
-	@ParameterizedTest
-	@ValueSource(strings = {"-0", "가나다", "abc", "+00", "105"})
-	void isStringWithNonZeroStartTest1(String string) {
-		inputValidator.isStringWithNonZeroStart(string);
-	}
-
-	@ParameterizedTest
-	@ValueSource(strings = {"0", "012", "0가나", "0asd"})
-	void isStringWithNonZeroStartTest2(String string) {
-		assertThrows(IllegalArgumentException.class, () -> inputValidator.isStringWithNonZeroStart(string));
 	}
 }
