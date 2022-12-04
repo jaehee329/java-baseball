@@ -2,15 +2,27 @@ package baseball.view;
 
 public class InputValidator {
 
-	public boolean isNumberString(String string) {
-		return string.chars().allMatch(Character::isDigit);
+	public void validateBaseballNumber(String string) throws IllegalArgumentException {
+		isNumberString(string);
+		hasThreeCharacters(string);
+		isStringWithNonZeroStart(string);
 	}
 
-	public boolean hasThreeCharacters(String string) {
-		return string.length() == 3;
+	public void isNumberString(String string) {
+		if (!string.chars().allMatch(Character::isDigit)) {
+			throw new IllegalArgumentException("입력은 숫자로만 구성된 문자열이어야 합니다.");
+		}
 	}
 
-	public boolean isStringWithNonZeroStart(String string) {
-		return string.charAt(0) != '0';
+	public void hasThreeCharacters(String string) {
+		if (string.length() != 3) {
+			throw new IllegalArgumentException("입력은 세 자리 문자로 구성되어야 합니다.");
+		}
+	}
+
+	public void isStringWithNonZeroStart(String string) {
+		if (string.charAt(0) == '0') {
+			throw new IllegalArgumentException("입력은 0이 아닌 문자로 시작되어야 합니다.");
+		}
 	}
 }
