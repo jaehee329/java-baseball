@@ -6,9 +6,15 @@ public class InputView {
 
 	private static InputValidator inputValidator = new InputValidator();
 
-	public static String getBaseballNumber() {
+	public String getBaseballNumber() {
 		String input = Console.readLine();
 		inputValidator.validateBaseballNumber(input);
+		return input;
+	}
+
+	public String getRestartNumber() {
+		String input = Console.readLine();
+		inputValidator.validateRestartNumber(input);
 		return input;
 	}
 }
