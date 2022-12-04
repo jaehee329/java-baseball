@@ -13,12 +13,14 @@ public class InputValidator {
 
 	private void isStringPositiveThreeDigit(String string) {
 		if (!string.matches("^[1-9]{3}")) {
-			throw new IllegalArgumentException("입력은 세 자리의 자연수여야 합니다");
+			throw new IllegalArgumentException("입력은 0이 없는 세 자리의 자연수여야 합니다");
 		}
 	}
 
 	private void isCharactersDistinct(String string) {
-
+		if (string.chars().distinct().count() != 3) {
+			throw new IllegalArgumentException("입력 숫자에는 중복이 없어야 합니다.");
+		}
 	}
 
 	public void isOneOrTwo(String string) {
