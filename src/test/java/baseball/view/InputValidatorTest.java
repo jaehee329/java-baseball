@@ -24,12 +24,12 @@ class InputValidatorTest {
 	@ParameterizedTest
 	@ValueSource(strings = {"", "-1", "가나", "abcd", "+123"})
 	void isOneOrTwoTest1(String string) {
-		assertThrows(IllegalArgumentException.class, () -> inputValidator.isOneOrTwo(string));
+		assertThrows(IllegalArgumentException.class, () -> inputValidator.validateRestartNumber(string));
 	}
 
 	@ParameterizedTest
 	@ValueSource(strings = {"1", "2"})
 	void isOneOrTwoTest2(String string) {
-		inputValidator.isOneOrTwo(string);
+		inputValidator.validateRestartNumber(string);
 	}
 }

@@ -23,7 +23,7 @@ public class InputValidator {
 		}
 	}
 
-	public void isOneOrTwo(String string) {
+	private void isOneOrTwo(String string) {
 		if (!(string.equals("1") || string.equals("2"))) {
 			throw new IllegalArgumentException("입력은 1 또는 2여야 합니다.");
 		}
