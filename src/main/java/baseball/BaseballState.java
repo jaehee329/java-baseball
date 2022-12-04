@@ -11,7 +11,7 @@ public class BaseballState {
 		List<Integer> answer = new ArrayList<>();
 		answer.add(baseballNumberGenerator.generateNonZeroSingleDigit());
 		while (answer.size() < 3) {
-			int number = baseballNumberGenerator.generateSingleDigit();
+			int number = baseballNumberGenerator.generateNonZeroSingleDigit();
 			if (!answer.contains(number)) {
 				answer.add(number);
 			}
