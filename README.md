@@ -20,7 +20,6 @@
 - [X] BaseballNumGenerator 클래스:
     - [X] List<Integer> getBaseballNumber() 메서드: 세 개의 난수가 담긴 리스트 반환
 
-
 - [X] Grader 클래스:
     - [X] Score getScore(List<Integer>) 메서드
     - [X] boolean isCorrect(List<Integer>) 메서드
